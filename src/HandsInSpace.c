@@ -32,17 +32,15 @@ static struct {
  
 static void window_load(Window *window);
 static void window_unload(Window *window);
-static void deinit(void);
 static void window_load(Window *window);
-static void window_unload(Window *window);
 static void timer_handler(struct tm *current, TimeUnits units);
 static void update_hand_angles();
+static void hand_layer_update(Layer *layer, GContext *ctx);
+static void draw_hour_markers(GContext *ctx, GPoint center);
 static void draw_second_hand(GContext *ctx, GPoint center, int angle);
 static void draw_minute_hand(GContext *ctx, GPoint center, int angle);
 static void draw_hour_hand(GContext *ctx, GPoint center, int angle);
 static GPoint get_point(GPoint center, int radius, int degrees);
-static void draw_hour_markers(GContext *ctx, GPoint center);
-static void hand_layer_update(Layer *layer, GContext *ctx);
 
 
 int main()
