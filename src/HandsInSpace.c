@@ -1,6 +1,5 @@
 #include <pebble.h>
 
-static Window *window;
 static Layer *hand_layer;
 static GFont hour_font;
 
@@ -49,7 +48,7 @@ int main()
         resource_get_handle(RESOURCE_ID_HOUR_HAND_FONT_28)
     );
 
-    window = window_create();
+    Window *window = window_create();
     window_set_window_handlers(window, (WindowHandlers) {
         .load = window_load,
         .unload = window_unload,
@@ -113,9 +112,6 @@ static void hand_layer_update(Layer *layer, GContext *ctx)
     );
 
     draw_hour_markers(ctx, center);
-
-    time_t cur = time(NULL);
-    struct tm *tick = localtime(&cur);
 
     draw_minute_hand(ctx, center, angles.minute);
     draw_hour_hand(ctx, center, angles.hour);
