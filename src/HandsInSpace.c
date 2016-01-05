@@ -1,4 +1,9 @@
 #include <pebble.h>
+/*
+ * A simple analog watchface with floating hands (not connected to anything).
+ *
+ * Using C11, nice not being in a legacy environment for a change.
+ */
 
 static Layer *hand_layer;
 static GFont hour_font;
@@ -31,7 +36,6 @@ static struct {
  
 static void window_load(Window *window);
 static void window_unload(Window *window);
-static void window_load(Window *window);
 static void timer_handler(struct tm *current, TimeUnits units);
 static void update_hand_angles();
 static void hand_layer_update(Layer *layer, GContext *ctx);
@@ -123,9 +127,7 @@ static void draw_hour_markers(GContext *ctx, GPoint center)
 {
     char buf[32];
 
-    for(int hour = 1; hour <= 12; hour++)
-    {
-
+    for (int hour = 1; hour <= 12; hour++) {
         GPoint point = get_point(center, 64, (hour % 12) * 30);
         graphics_context_set_text_color(ctx, HOUR_COL);
 
@@ -152,8 +154,7 @@ static void draw_second_hand(GContext *ctx, GPoint center, int angle)
         {0, -15}
     };
 
-    if(!path)
-    {
+    if (!path) {
         info.num_points = sizeof(points) / sizeof(GPoint);
         info.points = points;
         path = gpath_create(&info);
@@ -191,8 +192,7 @@ static void draw_minute_hand(GContext *ctx, GPoint center, int angle)
         {0, -15}
     };
 
-    if(!path)
-    {
+    if (!path) {
         info.num_points = sizeof(points) / sizeof(GPoint);
         info.points = points;
         path = gpath_create(&info);
@@ -233,8 +233,7 @@ static void draw_hour_hand(GContext *ctx, GPoint center, int angle)
         {0, -15}
     };
 
-    if(!path)
-    {
+    if (!path) {
         info.num_points = sizeof(points) / sizeof(GPoint);
         info.points = points;
         path = gpath_create(&info);
