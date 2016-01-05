@@ -47,7 +47,7 @@ int main()
 {
     hour_font = fonts_load_custom_font(
         resource_get_handle(RESOURCE_ID_HOUR_HAND_FONT_28)
-    )
+    );
 
     window = window_create();
     window_set_window_handlers(window, (WindowHandlers) {
