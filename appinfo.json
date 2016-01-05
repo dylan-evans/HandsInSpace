@@ -1,0 +1,30 @@
+{
+  "uuid": "30465ab8-06f9-4cbf-a295-42a6168e2b12",
+  "shortName": "Hands In Space",
+  "longName": "Hands In Space",
+  "companyName": "Dylan Evans",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt", "chalk"],
+  "watchapp": {
+    "watchface": true
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": [
+        {
+            "characterRegex": "[:0-9]",
+            "type": "font",
+            "name": "FONT_JUST_ANOTHER_HAND_NUMBERS_32",
+            "file": "fonts/Just_Another_Hand/JustAnotherHand.ttf"
+        }, {
+            "characterRegex": "[:0-9]",
+            "type": "font",
+            "name": "HOUR_HAND_FONT_28",
+            "file": "fonts/Yellowtail/Yellowtail-Regular.ttf"
+        }
+    ]
+  }
+}
